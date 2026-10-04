@@ -26,5 +26,7 @@ while ($true) {
         } catch {
             Add-Content -Path $log -Value ("[{0}] ERROR {1}" -f (Get-Date -Format 'yyyy-MM-dd HH:mm:ss'), $_)
         }
+        # Changes made while the script was running are not seen by WaitForChanged, so re-check.
+        if (git -C $root status --porcelain) { $pending = $true; $last = Get-Date }
     }
 }
