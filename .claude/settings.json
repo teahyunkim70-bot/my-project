@@ -1,14 +1,1 @@
-{
-  "hooks": {
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .claude/auto-commit.ps1"
-          }
-        ]
-      }
-    ]
-  }
-}
+{}
