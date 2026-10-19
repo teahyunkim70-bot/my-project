@@ -138,7 +138,11 @@ add(('d', '2027. 4. 조달 발주 의뢰 → 5. 도급 계약 및 착공(공사�
 add(('o', '정보시스템 통합 유지보수(2027. 1. 착수)'))
 add(('d', '정보통신시스템 및 IT 인프라 365일 24시간 무중단 운영·관리'))
 add(('d', '장애 예방과 신속 대응을 위한 체계적 유지보수 체계 운영'))
-add(('add_dummy',)) if False else None
+
+# 'qual' 옵션: 3. 정성적 평가만 출력(기존 신청서에 붙여 넣기용)
+if len(sys.argv) > 2 and sys.argv[2] == 'qual':
+    i = ops.index(('h1pb', '3. 정성적 평가'))
+    ops = [('h1', '3. 정성적 평가')] + ops[i + 1:]
 
 out = sys.argv[1]
 gen.save(out, ops)
